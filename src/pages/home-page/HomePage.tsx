@@ -7,13 +7,22 @@ import { CustomSelect } from '../../components/custom-select/CustomSelect';
 import { Language } from '../../models/enums';
 import { languages, taxPayerCategories, taxZones } from '../../data/config-data';
 import { Constants } from '../../data/constants';
+import { TaxBreakdown } from '../../components/tax-breakdown/TaxBreakdown';
 
 i18n.use(initReactI18next)
     .init({
       resources: translationData,
       lng: Constants.defaultLanguage,
       fallbackLng: Constants.defaultLanguage,
-      interpolation: { escapeValue: false }
+      interpolation: {
+        format: (value, format, lng) => {
+          if (typeof value === 'number') {
+              return value.toLocaleString(lng);
+          }
+          return value;
+        },
+        escapeValue: false
+      }
     });
 
 function HomePage() {
@@ -58,6 +67,12 @@ function HomePage() {
         minWidth = { 120 }
         cssClass = "right"
         t = { t }
+      />
+      <br/>
+      <TaxBreakdown
+        totalIncomeAmout = {1100000}
+        taxFreeAmount = {300000}
+        t = {t}
       />
     </>
   );

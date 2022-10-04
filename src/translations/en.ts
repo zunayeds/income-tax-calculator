@@ -18,5 +18,19 @@ export const enTranslation: TranslationBaseModel = {
 		'Dhaka North / Dhaka South / Chattogram City Corporation',
 		'Other City Corporation',
 		'Outside City Corporation'
-	]
+	],
+	taxBreakdown: {
+		totalIncomeHeader: 'Total Income',
+		taxRateHeader: 'Tax Rate',
+		taxAmountHeader: 'Tax Amount',
+		remainingHeader: 'Remaining',
+		totalIncomeUpto: 'Upto first {{ number, format }} Taka',
+		nextIncome: 'On the Next {{ number, format }} Taka',
+		remainingIncomeAmount: 'On remaining {{ number, format }} Taka',
+		remainingElse: 'For remaininging amount',
+		taxRate: '{{ number, format }}%',
+		taxAmount: '{{ number, format }}',
+		remaining: '{{ number, format }}',
+		grossTax: 'Gross Tax Amount'
+	}
 };
